@@ -26,6 +26,7 @@ var ball = {
 function setup(){
   var canvas =  createCanvas(700,600);
   canvas.parent("canvas");
+  var game_status= "";
   video = createCapture(VIDEO);
   video.size(700, 600);
   video.hide();
@@ -58,11 +59,13 @@ function draw(){
  fill("black");
  stroke("black");
  rect(0,0,20,700);
- 
+ game_status="start";
+ document.getElementById("status").innerHTML="Game is Loaded";
    //funtion paddleInCanvas call 
    paddleInCanvas();
  
    //left paddle
+   if(game_status=="start"){
    fill(250,0,0);
     stroke(0,0,250);
     strokeWeight(0.5);
@@ -86,7 +89,9 @@ function draw(){
    
    //function move call which in very important
     move();
-}
+
+     }  }
+
 
 
 
